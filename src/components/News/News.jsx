@@ -30,7 +30,7 @@ const News = ({
         />
       </div>
 
-      {createNewsList(news, isAdmin, currentUserId)}
+    {createNewsList(news, isAdmin, currentUserId, searchValue)}
     </div>
   );
 };

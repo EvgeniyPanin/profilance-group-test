@@ -22,8 +22,8 @@ class NewsContainer extends React.Component {
     }
   }
 
-  createNewsList = (news, isAdmin, currentUserId) => {
-    return [...news]
+  createNewsList = (news, isAdmin, currentUserId, searchValue) => {
+    let middleArr =  [...news]
       .sort((a, b) => {
         if (a.status === "approved" && b.status === "moderation") {
           return 1;
@@ -34,7 +34,13 @@ class NewsContainer extends React.Component {
           return 0;
         }
       })
-      .map((item) => {
+
+    if (searchValue) {
+      middleArr = middleArr.filter(news => {
+        return news.title.includes(searchValue) || news.content.includes(searchValue)
+      })
+    }
+    return middleArr.map((item) => {
         if (!this.props.isAuth) {
           if (item.status === 'moderation') {
             return null;
