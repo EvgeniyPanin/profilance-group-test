@@ -2,18 +2,33 @@ import React from "react";
 import { reduxForm, Field } from "redux-form";
 import style from "./NewPostForm.module.css";
 import { required } from "../../../utils/validators/required";
+import { Input } from '../Fields/Field';
+import { Textarea } from '../Fields/Textarea';
 
 const NewPostForm = (props) => {
   return (
     <form className={style.form} onSubmit={props.handleSubmit}>
-      <Field
-        className={style.input}
+      <div className={`form-group ${style.input_container}`}>
+        <Field
+        className="form-control"
         type="text"
-        placeholder="Что у вас нового?"
-        component="input"
-        name="NewPostText"
+        placeholder="Заполните заголовок"
+        component={Input}
+        name="title"
         validate={[required]}
       />
+      </div>
+      <div className={`form-group ${style.input_container}`}>
+        <Field
+        className="form-control"
+        type="text"
+        placeholder="Текст статьи"
+        component={Textarea}
+        name="content"
+        validate={[required]}
+      />
+      </div>
+      
         <button type="submit" className={`btn btn-primary ${style.button}`}>Добавить</button>
     </form>
   );

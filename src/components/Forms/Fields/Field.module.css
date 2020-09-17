@@ -2,7 +2,7 @@
     color: rgb(252, 89, 89);
     font-weight: 500;
     position: absolute;
-    top: 37px;
+    bottom: -22px;
     left: 12px;
 }
 
@@ -19,6 +19,7 @@
 }
 
 .field_container {
+    width: 100%;
     position: relative;
     margin-bottom: 10px;
 }

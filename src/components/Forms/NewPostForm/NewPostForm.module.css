@@ -4,6 +4,10 @@
     align-items: flex-end;
 }
 
+.input_container {
+    width: 100%;
+}
+
 .input {
     width: 100%;
     resize: none;

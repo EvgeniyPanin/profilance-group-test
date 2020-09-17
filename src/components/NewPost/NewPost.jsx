@@ -1,5 +1,5 @@
 import React from "react";
-import NewPostForm from "../../Forms/NewPostForm/NewPostForm";
+import NewPostForm from "../Forms/NewPostForm/NewPostForm";
 import style from "./NewPost.module.css";
 
 class NewPost extends React.Component {
@@ -15,8 +15,8 @@ class NewPost extends React.Component {
   }
 
   onSubmit = (formData) => {
-    console.log(formData)
-    // this.props.addPost(formData.NewPostText);
+    // console.log(formData)
+    this.props.addPost(formData, this.props.isAdmin, this.props.currentUserId);
   };
 }
 

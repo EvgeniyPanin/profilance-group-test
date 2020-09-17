@@ -5,15 +5,15 @@ const RESET_AUTH_DATA = "AUTH/RESET_AUTH_DATA";
 
 const initialState = {
   currentUser: {
-    id: null,
-    login: null,
-    credentials: null
+    id: 1,
+    login: 'admin',
+    credentials: 'admin',
   },
   users: [
     { login: "admin", password: "admin", id: 1, credentials: "admin" },
     { login: "user", password: "user", id: 2, credentials: "user" }
   ],
-  isAuth: false
+  isAuth: true
 };
 
 const authReducer = (state = initialState, action) => {

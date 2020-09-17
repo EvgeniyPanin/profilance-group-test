@@ -1,13 +1,20 @@
+import { buildCurrentDate } from '../utils/createCurrentDate';
+
 const ADD_POST = "NEWS/ADD-POST";
 const APPROVED_NEWS = "NEWS/APPROVED_NEWS";
+const DELETE_NEWS = "NEWS/DELETE_NEWS";
+const SET_SEARCH_VALUE = "NEWS/SET_SEARCH_VALUE";
 
 
-const createNewPost = (text) => {
-  const newPost = {
-    contant: text,
-    avatar: null,
+const createNews = (news, isAdmin, ownerId, countNews) => {
+  const status = isAdmin ? 'approved' : 'moderation';
+  return {
+    ...news,
+    status,
+    ownerId, 
+    date: buildCurrentDate(),
+    id: countNews + 1
   };
-  return newPost;
 };
 
 const initialState = {
@@ -61,15 +68,26 @@ const initialState = {
       id: 6
     }
   ],
+  searchValue: '',
 };
 
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
-      const newPost = createNewPost(action.newPostText);
+      const news = createNews(action.news, action.isAdmin, action.ownerId, state.news.length);
       return {
         ...state,
-        posts: [...state.posts, newPost],
+        news: [...state.news, news],
+      };
+    case SET_SEARCH_VALUE:
+      return {
+        ...state,
+        searchValue: action.value,
+      };
+    case DELETE_NEWS:
+      return {
+        ...state,
+        news: [...state.news.filter(item => item.id !== action.id)],
       };
     case APPROVED_NEWS:
       return {
@@ -89,38 +107,23 @@ const newsReducer = (state = initialState, action) => {
   }
 };
 
-export function addPost(newPostText) {
-  return { type: ADD_POST, newPostText };
+export function addPost(news, isAdmin, ownerId) {
+  return { type: ADD_POST, news, isAdmin, ownerId };
+}
+
+export function deleteNews(id) {
+  return { type: DELETE_NEWS, id };
 }
 
 export function approvedNews(id) {
   return { type: APPROVED_NEWS, id };
 }
 
-export const getStatus = (userID) => {
-  /* return async (dispatch) => {
+export function setSearchValue(value) {
+  return { type: SET_SEARCH_VALUE, value };
+}
 
-    const res = await profileAPI.getStatus(userID);
 
-    let status = res.data;
-    if (status === null || status === "") {
-      status = "Нажмите, чтобы установить статус";
-    }
-    dispatch(setStatus(status));
-  }; */
-};
-
-export const setUserStatus = (status) => {
-  /* return async (dispatch) => {
-
-    const res = await profileAPI.setStatus(status);
-
-    const isHasStatus = (res.resultCode === 0);
-    if (isHasStatus) {
-      dispatch(setStatus(status));
-    }
-  }; */
-};
 
 export const setUserAvatar = (fileAvatar) => {
   /* return async (dispatch) => {

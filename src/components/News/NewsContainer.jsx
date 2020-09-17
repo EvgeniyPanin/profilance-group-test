@@ -5,14 +5,21 @@ import {
   selectIsAdmin,
   selectId,
 } from "../../redux/auth-selectors";
-import { selectNews } from "../../redux/news-selectors";
+import { selectNews, selectSearchValue } from "../../redux/news-selectors";
 import Post from "../Post/Post";
 import News from "./News";
-import {approvedNews} from '../../redux/news-reducer';
+import {approvedNews, deleteNews, addPost, setSearchValue} from '../../redux/news-reducer';
 
 class NewsContainer extends React.Component {
   render() {
+    console.log('render')
     return <News createNewsList={this.createNewsList} {...this.props} />;
+  }
+
+  componentDidUpdate = (prevProps) => {
+    if (this.props.currentUserId != prevProps.currentUserId) {
+      this.render();
+    }
   }
 
   createNewsList = (news, isAdmin, currentUserId) => {
@@ -28,8 +35,10 @@ class NewsContainer extends React.Component {
         }
       })
       .map((item) => {
-        if (!this.props.isAuth && item.status === 'moderation') {
-          return null;
+        if (!this.props.isAuth) {
+          if (item.status === 'moderation') {
+            return null;
+          }
         }
         return (
           <Post
@@ -38,6 +47,7 @@ class NewsContainer extends React.Component {
             isAdmin={isAdmin}
             currentUserId={currentUserId}
             approvedNews={this.props.approvedNews}
+            deleteNews={this.props.deleteNews}
           />
         );
       });
@@ -50,7 +60,8 @@ const mapStateToProps = (state) => {
     isAdmin: selectIsAdmin(state),
     news: selectNews(state),
     currentUserId: selectId(state),
+    searchValue: selectSearchValue(state),
   };
 };
 
-export default connect(mapStateToProps, {approvedNews})(NewsContainer);
+export default connect(mapStateToProps, {approvedNews, deleteNews, addPost, setSearchValue})(NewsContainer);

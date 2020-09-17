@@ -7,11 +7,6 @@ import Navbar from "../Navbar/Navbar";
 const Header = (props) => {
   return (
     <header className={style.header}>
-      <span
-        className={style.logo}
-      >
-        Profilance-froup
-      </span>
       <Navbar />
       <div className={style.auth}>
         {props.isAuth ? (
