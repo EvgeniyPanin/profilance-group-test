@@ -10,8 +10,8 @@ const initialState = {
     credentials: null
   },
   users: [
-    { login: "admin", password: "admin_password", id: 1, credentials: "admin" },
-    { login: "user", password: "user_password", id: 2, credentials: "user" }
+    { login: "admin", password: "admin", id: 1, credentials: "admin" },
+    { login: "user", password: "user", id: 2, credentials: "user" }
   ],
   isAuth: false
 };

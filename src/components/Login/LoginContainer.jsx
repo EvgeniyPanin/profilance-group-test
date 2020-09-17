@@ -8,7 +8,7 @@ import { selectIsAuth } from '../../redux/auth-selectors';
 class LoginContainer extends React.Component {
   render() {
     if (this.props.isAuth) {
-      return <Redirect to="/profile"/>
+      return <Redirect to="/index"/>
     }
     return <Login onSubmit = {this.onSubmit}/>
     }

@@ -7,5 +7,9 @@ export const selectLogin = function(state) {
 }
 
 export const selectId = function(state) {
-    return state.auth.id
+    return state.auth.currentUser.id
+}
+
+export const selectIsAdmin = function(state) {
+    return state.auth.currentUser.credentials === 'admin'
 }
