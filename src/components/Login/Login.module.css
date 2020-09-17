@@ -1,0 +1,10 @@
+.login__container {
+    width: 50%;
+    margin: 25vh auto 0;
+}
+
+@media screen and (max-width: 768px) {
+    .login__container {
+        width: 70%;
+    }
+}

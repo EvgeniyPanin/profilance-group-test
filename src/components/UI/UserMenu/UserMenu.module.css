@@ -1,0 +1,25 @@
+.container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    font-size: 20px;
+    color: inherit;
+    background-color: inherit;
+    margin-right: 10px;
+    border: 2px solid rgb(4, 4, 100);
+}
+
+.button:hover {
+    background-color: #1e55a8;
+}
+
+
+.link,
+.link:hover {
+    color: white;
+    text-decoration: none;
+}
+

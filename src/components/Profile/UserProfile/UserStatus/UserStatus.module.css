@@ -1,0 +1,39 @@
+.input {
+    width: 100%;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid rgb(214, 212, 212);
+    font-size: inherit;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.input:focus {
+    outline: 1px solid #6183aa;
+}
+
+.status {
+    position: relative;
+    padding-right: 10px;
+}
+
+.pencil {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 4px;
+    right: 0;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 868px) {
+    .status {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .status {
+        font-size: 12px;
+    }
+}

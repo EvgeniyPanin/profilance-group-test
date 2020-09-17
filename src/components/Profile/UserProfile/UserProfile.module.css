@@ -1,0 +1,45 @@
+.container {
+    width: 100%;
+    margin: 1em 0;
+    padding: 1em;
+    display: flex;
+}
+
+.avatar_container {
+   margin-left: 1em;
+   width: 25%;
+   height: fit-content;
+}
+
+.image_container {
+    display: inline-block;
+   width: 100%;
+   padding-bottom: 100%;
+   position: relative;
+}
+
+.avatar {
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.description_container {
+    width: 85%;
+    margin-left: 1.5em;
+}
+
+@media screen and (max-width: 868px) {
+    .user_name {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .user_name {
+        font-size: 17px;
+    }
+}

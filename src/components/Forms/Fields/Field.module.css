@@ -1,0 +1,24 @@
+.error {
+    color: rgb(252, 89, 89);
+    font-weight: 500;
+    position: absolute;
+    top: 37px;
+    left: 12px;
+}
+
+.field_unvalid {
+    border-color: rgb(252, 89, 89);
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgb(252, 89, 89);
+}
+
+.field_unvalid:focus {
+    border-color: rgb(252, 89, 89);
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgb(252, 89, 89);
+}
+
+.field_container {
+    position: relative;
+    margin-bottom: 10px;
+}

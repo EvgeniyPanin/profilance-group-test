@@ -1,0 +1,23 @@
+.login_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.button_login {
+    background-color: #6183aa;
+    border: none;
+}
+
+.button_login:hover {
+    background-color: #6183aa;
+    opacity: .85;
+    translate: .3s;
+}
+
+.submit_error {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: rgb(252, 89, 89);
+    margin-bottom: 10px;
+}

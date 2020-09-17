@@ -1,0 +1,40 @@
+.header {
+    grid-area: header;
+    background-color: #6183aa;
+    padding-left: 15px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.logo {
+    height: 100%;
+    padding: 5px 0;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.auth {
+    margin-right: 20px;
+    color: white;
+    font-size: 22px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.login {
+    color: white;
+}
+
+.login:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    transition: .4;
+}

@@ -1,0 +1,51 @@
+.nav {
+    grid-area: nav;
+    background-color: #6183aa;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 0.5rem;
+  }
+
+  .links {
+    list-style-type: none;
+    padding: 0;
+    margin: 5px 0 40px;
+  }
+
+  .link {
+    display: inline-block;
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+.link a {
+  font-size: 1.1em;
+  color: white;
+  text-decoration: none;
+}
+
+.link:last-of-type {
+  margin-top: 2.5rem;
+}
+
+.link a.active {
+  color: gold;
+}
+
+.link:hover {
+  background-color: #1e55a8;
+}
+
+@media screen and (max-width: 868px) {
+  .nav {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .nav {
+    font-size: 15px;
+  }
+}
