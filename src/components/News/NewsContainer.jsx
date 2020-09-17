@@ -12,7 +12,6 @@ import {approvedNews, deleteNews, addPost, setSearchValue} from '../../redux/new
 
 class NewsContainer extends React.Component {
   render() {
-    console.log('render')
     return <News createNewsList={this.createNewsList} {...this.props} />;
   }
 

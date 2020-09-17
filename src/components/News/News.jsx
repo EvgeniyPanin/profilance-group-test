@@ -26,7 +26,7 @@ const News = ({
           onChange={(evt) => {setSearchValue(evt.target.value)}}
           value={searchValue}
           className={style.input}
-          placeholder="Введите здесь значение для поиска по заголовкам и текстам новостей"
+          placeholder="Введите здесь значение для поиска по новостям(чувствительно к регистру)"
         />
       </div>
 
