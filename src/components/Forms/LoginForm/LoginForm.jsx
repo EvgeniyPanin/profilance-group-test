@@ -14,7 +14,7 @@ const LoginForm = (props) => {
           <Field type="text" 
                 className="form-control" 
                 placeholder='email' 
-                name='email' 
+                name='login'
                 component={Input}
                 validate={[required, maxLength25]}
           />
@@ -27,10 +27,6 @@ const LoginForm = (props) => {
                 validate={[required, maxLength25]}
                 type='password'
           />
-        </div>
-        <div className="form-group form-check">
-          <Field type="checkbox" className="form-check-input" name='rememberMe' component='input'/>
-          <label className="form-check-label" for="exampleCheck1">Запомнить меня</label>
         </div>
         <button type="submit" className={`btn btn-primary ${style.button_login}`}>Войти</button>
       </form>

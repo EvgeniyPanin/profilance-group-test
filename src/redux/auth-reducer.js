@@ -1,29 +1,59 @@
-// import { stopSubmit } from "redux-form";
+import { stopSubmit } from "redux-form";
 
-const SET_USER_DATA = "AUTH/SET_USER_DATA";
+const SET_AUTHORIZATION = "AUTH/SET_AUTHORIZATION";
+const RESET_AUTH_DATA = "AUTH/RESET_AUTH_DATA";
 
 const initialState = {
-  id: null,
-  email: null,
-  login: null,
-  isAuth: false,
-  isFetching: false,
+  currentUser: {
+    id: null,
+    login: null,
+    credentials: null
+  },
+  users: [
+    { login: "admin", password: "admin_password", id: 1, credentials: "admin" },
+    { login: "user", password: "user_password", id: 2, credentials: "user" }
+  ],
+  isAuth: false
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_USER_DATA:
+    case SET_AUTHORIZATION:
+      for (let i=0; i < state.users.length; i++) {
+        const user = state.users[i]
+        if (user.login === action.payload.login && user.password === action.payload.password) {
+          return {
+            ...state,
+            currentUser: {
+              id: user.id,
+              login: user.login,
+              credentials: user.credentials,
+            },
+            isAuth: true,
+          }
+        }
+      }
+    case RESET_AUTH_DATA:
       return {
         ...state,
-        ...action.payload,
-      };
+        currentUser: {
+          id: null,
+          login: null,
+          credentials: null
+        },
+        isAuth: false
+      }
     default:
       return state;
   }
 };
 
-export const setAuthUserData = (id, email, login, isAuth) => {
-  return { type: SET_USER_DATA, payload: { id, email, login, isAuth } };
+const setAuthorization = (payload) => {
+  return { type: SET_AUTHORIZATION, payload};
+};
+
+const resetAuthData = () => {
+  return { type: RESET_AUTH_DATA};
 };
 
 export const getMe = () => {
@@ -37,12 +67,14 @@ export const getMe = () => {
   }; */
 };
 
-export const login = (email, password, rememberMe = false) => {
-  /* return async (dispatch) => {
-    const data = await authAPI.login(email, password, rememberMe);
-    const isAuthorized = data.resultCode === 0;
+export const login = (payload) => {
+  return (dispatch, getState) => {
+    const data = dispatch(setAuthorization(payload));
 
-    if (isAuthorized) {
+    if (!getState().auth.isAuth) {
+      dispatch(stopSubmit("login", { _error: 'Ошибка авторизации, логин или пароль введен некорректно' }));
+    }
+   /*  if (isAuthorized) {
       dispatch(getMe());
     } else {
       const error =
@@ -50,17 +82,13 @@ export const login = (email, password, rememberMe = false) => {
           ? "Failed authorized, some error"
           : data.messages[0];
       dispatch(stopSubmit("login", { _error: error }));
-    }
-  }; */
+    } */
+  };
 };
 
 export const logout = () => {
   return async (dispatch) => {
-    /* const data = await authAPI.logout();
-
-    if (data.resultCode === 0) {
-      dispatch(setAuthUserData(null, null, null, false));
-    } */
+    dispatch(resetAuthData())
   };
 };
 

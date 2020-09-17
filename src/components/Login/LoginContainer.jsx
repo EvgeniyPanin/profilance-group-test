@@ -14,8 +14,7 @@ class LoginContainer extends React.Component {
     }
 
   onSubmit = (formData) => {
-    const {email, password, rememberMe} = formData;
-    this.props.login(email, password, rememberMe);
+    this.props.login(formData);
   }
 }
 

@@ -1,20 +1,19 @@
 .nav {
-    grid-area: nav;
     background-color: #6183aa;
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
     border-radius: 0.5rem;
   }
 
   .links {
     list-style-type: none;
     padding: 0;
-    margin: 5px 0 40px;
+    /* margin: 5px 0 40px; */
   }
 
   .link {
     display: inline-block;
-    width: 100%;
+    /* width: 100%; */
     padding: 0 15px;
     margin-top: 10px;
     cursor: pointer;
@@ -27,7 +26,7 @@
 }
 
 .link:last-of-type {
-  margin-top: 2.5rem;
+  /* margin-top: 2.5rem; */
 }
 
 .link a.active {

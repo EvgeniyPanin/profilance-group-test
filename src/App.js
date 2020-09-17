@@ -1,16 +1,8 @@
 import React from "react";
 import "./App.css";
-// import Navbar from "./components/Navbar/Navbar";
-// import News from "./components/News/News";
-// import Music from "./components/Music/Music";
 import {Route, withRouter} from "react-router-dom";
-// import UsersContainer from "./components/Users/UsersContainer";
-// import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import { compose } from "redux";
-// import { connect } from "react-redux";
-// import { initialization } from './redux/app-reducer';
-// import { withSuspense } from "./hok/withSuspense";
 import LoginContainer from './components/Login/LoginContainer';
 
 

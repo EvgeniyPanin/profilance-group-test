@@ -2,21 +2,23 @@ import React from "react";
 import style from "./Header.module.css";
 import { NavLink } from "react-router-dom";
 import UserMenuContainer from "../UI/UserMenu/UserMenuContainer";
+import Navbar from "../Navbar/Navbar";
 
 const Header = (props) => {
   return (
     <header className={style.header}>
-      <img
+      <span
         className={style.logo}
-        href="social network icon"
-        src="https://openclipart.org/image/2400px/svg_to_png/216095/WWW-Icon-White-on-Black.png"
-      />
+      >
+        Profilance-froup
+      </span>
+      <Navbar />
       <div className={style.auth}>
         {props.isAuth ? (
           <UserMenuContainer userLogin={props.login}></UserMenuContainer>
         ) : (
           <NavLink to="/login" className={style.login}>
-            Login
+            Вход
           </NavLink>
         )}
       </div>

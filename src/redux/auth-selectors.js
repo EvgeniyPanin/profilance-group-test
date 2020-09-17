@@ -3,7 +3,7 @@ export const selectIsAuth = function(state) {
 }
 
 export const selectLogin = function(state) {
-    return state.auth.login
+    return state.auth.currentUser.login
 }
 
 export const selectId = function(state) {
