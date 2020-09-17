@@ -13,7 +13,7 @@ const LoginForm = (props) => {
         <div className="form-group">
           <Field type="text" 
                 className="form-control" 
-                placeholder='email' 
+                placeholder='login' 
                 name='login'
                 component={Input}
                 validate={[required, maxLength25]}

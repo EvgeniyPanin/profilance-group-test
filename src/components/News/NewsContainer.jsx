@@ -15,12 +15,6 @@ class NewsContainer extends React.Component {
     return <News createNewsList={this.createNewsList} {...this.props} />;
   }
 
-  componentDidUpdate = (prevProps) => {
-    if (this.props.currentUserId != prevProps.currentUserId) {
-      this.render();
-    }
-  }
-
   createNewsList = (news, isAdmin, currentUserId, searchValue) => {
     let middleArr =  [...news]
       .sort((a, b) => {

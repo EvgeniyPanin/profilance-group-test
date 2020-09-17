@@ -123,19 +123,4 @@ export function setSearchValue(value) {
   return { type: SET_SEARCH_VALUE, value };
 }
 
-
-
-export const setUserAvatar = (fileAvatar) => {
-  /* return async (dispatch) => {
-
-    const res = await profileAPI.setAvatar(fileAvatar);
-    const isOk = (res.resultCode === 0);
-    if (isOk) {
-      dispatch(setUserAvatarSuccess(res.data.photos));
-    } else {
-      alert(`Произошла ошибка при обновлении аватара`)
-    }
-  }; */
-};
-
 export default newsReducer;

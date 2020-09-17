@@ -15,7 +15,6 @@ class NewPost extends React.Component {
   }
 
   onSubmit = (formData) => {
-    // console.log(formData)
     this.props.addPost(formData, this.props.isAdmin, this.props.currentUserId);
   };
 }

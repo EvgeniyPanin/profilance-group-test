@@ -1,5 +1,4 @@
 import React from "react";
-import Preloader from "../components/UI/Preloader/Preloader";
 
 export const withSuspense = (Component) => {
   return (props) => {

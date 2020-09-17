@@ -8,12 +8,10 @@
   .links {
     list-style-type: none;
     padding: 0;
-    /* margin: 5px 0 40px; */
   }
 
   .link {
     display: inline-block;
-    /* width: 100%; */
     padding: 0 15px;
     margin-top: 10px;
     cursor: pointer;
@@ -23,10 +21,6 @@
   font-size: 1.1em;
   color: white;
   text-decoration: none;
-}
-
-.link:last-of-type {
-  /* margin-top: 2.5rem; */
 }
 
 .link a.active {

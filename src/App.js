@@ -14,13 +14,7 @@ class App extends React.Component {
     return (
       <div className="main">
         <HeaderContainer />
-        {/* <Navbar /> */}
         <div>
-          {/* <Route path='/profile/:id?' render={() => <ProfileContainer/>} /> */}
-          {/* <Route path='/users' render={() => <UsersContainer />} /> */}
-          {/* <Route path='/dialogs' render={withSuspense(DialogsContainer)} /> */}
-          {/* <Route path='/news' render={() => <News />} /> */}
-          {/* <Route path='/music' render={() => <Music />} /> */}
           <Route path='/login' render={() => <LoginContainer />} />
           <Route path='/index' render={() => <IndexContainer />} />
           <Route path='/news' render={() => <NewsContainer />} />

@@ -5,15 +5,15 @@ const RESET_AUTH_DATA = "AUTH/RESET_AUTH_DATA";
 
 const initialState = {
   currentUser: {
-    id: 1,
-    login: 'admin',
-    credentials: 'admin',
+    id: null,
+    login: null,
+    credentials: null,
   },
   users: [
-    { login: "admin", password: "admin", id: 1, credentials: "admin" },
-    { login: "user", password: "user", id: 2, credentials: "user" }
+    { login: "admin", password: "admin_password", id: 1, credentials: "admin" },
+    { login: "user", password: "user_password", id: 2, credentials: "user" }
   ],
-  isAuth: true
+  isAuth: false
 };
 
 const authReducer = (state = initialState, action) => {
@@ -56,17 +56,6 @@ const resetAuthData = () => {
   return { type: RESET_AUTH_DATA};
 };
 
-export const getMe = () => {
-  /* return async (dispatch) => {
-    const data = await authAPI.me();
-
-    if (data.resultCode === 0) {
-      const { email, id, login } = data.data;
-      dispatch(setAuthUserData(id, email, login, true));
-    }
-  }; */
-};
-
 export const login = (payload) => {
   return (dispatch, getState) => {
     const data = dispatch(setAuthorization(payload));
@@ -74,15 +63,6 @@ export const login = (payload) => {
     if (!getState().auth.isAuth) {
       dispatch(stopSubmit("login", { _error: 'Ошибка авторизации, логин или пароль введен некорректно' }));
     }
-   /*  if (isAuthorized) {
-      dispatch(getMe());
-    } else {
-      const error =
-        data.messages.length === 0
-          ? "Failed authorized, some error"
-          : data.messages[0];
-      dispatch(stopSubmit("login", { _error: error }));
-    } */
   };
 };
 
@@ -90,6 +70,7 @@ export const logout = () => {
   return async (dispatch) => {
     dispatch(resetAuthData())
   };
+  
 };
 
 export default authReducer;
